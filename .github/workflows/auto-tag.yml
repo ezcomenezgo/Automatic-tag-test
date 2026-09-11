@@ -5,6 +5,10 @@ on:
     types: [closed]
     branches: [develop]
 
+concurrency:
+  group: auto-tag-group       # Unique group name for concurrency control
+  cancel-in-progress: false  # Ensure that subsequent runs are queued instead of being canceled
+
 jobs:
   bump-tag:
     if: github.event.pull_request.merged == true
