@@ -1,0 +1,15 @@
+name: Mock AWS Deployment
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simulate AWS Deploy
+        run: |
+          echo "🚀 detected new Tag：${{ github.ref_name }}"
+          echo "Simulating AWS CodePipeline deployment..."
